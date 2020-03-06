@@ -3,7 +3,7 @@
 ## Introduction
 
 This is the source code of my blog post "Inserting 1 Million data into BigQuery Table".
-In this blog post, we will demonstrate how to insert JSON text file into Google's BigQuery Table using Go language. Go is known for one of the best language to write high-performance programs due to it's native libraries that make concurrent and parallel programming easier. We will also demonstrate how to use Go various native libraries (channel, goroutine, waitgroup).
+In this blog post, we will demonstrate how to insert JSON text file into Google's BigQuery Table using Go language. Go is known for one of the best language to write high-performance programs due to its native libraries that make concurrent and parallel programming easier. We will also demonstrate how to use Go various native libraries (channel, goroutine, waitgroup).
 
 ## Usage
 
