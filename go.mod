@@ -1,4 +1,4 @@
-module github.com/anpandu/go-json-to-bq
+module github.com/anpandu/i1m
 
 go 1.12
 

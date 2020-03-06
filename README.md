@@ -10,7 +10,9 @@ In this blog post, we will demonstrate how to insert JSON text file into Google'
 ### Installation
 
 ```sh
-# Install Go
+# Install Go (1.12.1)
+go version
+# go version go1.12.1 linux/amd64
 
 # Clone this project
 go get https://github.com/anpandu/go-json-to-bq
@@ -37,28 +39,28 @@ export GOOGLE_APPLICATION_CREDENTIALS=~/mykey.json
 
 ```sh
 # Run Part One: Simple Approach
-go run main.go \
+go run cmd/main1/main1.go \
   --project=myproject \
   --dataset=mydataset \
   --table=mytable \
-  --filepath=./students-1000.json.txt
+  --filepath=./students-10.json.txt
 
 # Run Part Two: Multiple Rows Insertion
-go run main2.go \
+go run cmd/main2/main2.go \
   --project=myproject \
   --dataset=mydataset \
   --table=mytable \
   --buffer-length=100 \
-  --filepath=./students-1000.json.txt
+  --filepath=./students-10.json.txt
 
 # Part Three: Multiple Workers and Multiple Rows Insertion
-go run main3.go \
+go run cmd/main3/main3.go \
   --project=myproject \
   --dataset=mydataset \
   --table=mytable \
   --buffer-length=100 \
   --worker=4 \
-  --filepath=./students-1000.json.txt
+  --filepath=./students-10.json.txt
 ```
 
 ## Benchmark
