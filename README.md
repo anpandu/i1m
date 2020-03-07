@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is the source code of my blog post "Inserting 1 Million data into BigQuery Table".
+This is the source code of my blog post ["Inserting 1 Million data into BigQuery Table"](https://anpandu.github.io/blog/inserting-1-million-data-into-bigquery-table/#preparation).
 In this blog post, we will demonstrate how to insert JSON text file into Google's BigQuery Table using Go language. Go is known for one of the best language to write high-performance programs due to its native libraries that make concurrent and parallel programming easier. We will also demonstrate how to use Go various native libraries (channel, goroutine, waitgroup).
 
 ## Usage
@@ -65,16 +65,16 @@ go run cmd/main3/main3.go \
 
 ## Benchmark
 
-This benchmark is taken using same type of machine, ___. Using multiple JSON text files generated at different sizes, we benchmark three approaches and measure time taken.
+Benchmark was taken using same type of machine, `n1-standard-1 (1 vCPU, 3.75 GB mem)`. Using multiple JSON text files generated at different sizes, we benchmark three approaches and measure time taken.
 
-| File       | Parameter   | 10        | 1.000     | 1.000.000 |
-|:-----------|:------------|----------:|----------:|----------:|
-| main.go    | w1 - n1     | 312.1648s | 312.1648s | 5.3089s   |
-| main2.go   | w1 - n100   |   4.5991s |   4.5991s | 2.6385s   |
-| main3.go   | w4 - n100   |   1.4532s |   1.4532s | 2.0018s   |
-| main3.go   | w16 - n100  |   0.8080s |   0.8080s | 2.0018s   |
-| main3.go   | w64 - n100  |   0.8487s |   0.8487s | 2.0018s   |
-| main3.go   | w300 - n500 |   0.9348s |   0.9348s | 2.0018s   |
+| File     | Parameter   | 1.000 rows | 10.000    | 100.000   | 1.000.000 |
+|:---------|:------------|-----------:|----------:|----------:|----------:|
+| main.go  | w1 - n1     |   312.164s | 3242.766s |       n/a |       n/a |
+| main2.go | w1 - n100   |     4.599s |   35.735s |  381.251s | 3738.669s |
+| main3.go | w4 - n100   |     1.453s |    9.137s |   95.666s |  939.175s |
+| main3.go | w16 - n100  |     0.808s |    2.938s |   24.754s |  224.630s |
+| main3.go | w64 - n100  |     0.848s |    1.643s |   11.667s |   62.624s |
+| main3.go | w300 - n500 |     0.934s |    1.296s |    4.081s |   14.787s |
 
 As we can see, higher number of `w` and `n` make insertion faster. Using our highest configuration enable us to insert one million rows in a mere 14 seconds!
 
